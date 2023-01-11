@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de eventos y funciones de jQuery</title>
+    <script src="js/jquery-3.6.3.js"></script>
+    <style>
+        body{
+            background-color: #ee5;
+            margin-top: 200px;
+        }
+
+        .acordeon{
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        .header{
+            background-color: #ccc;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .contenidoAcordeon{
+            background-color: #fff;
+            padding: 10px;
+        }
+
+        .sobre{
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .activo{
+            color: #ff0000;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function () {
+            var control = 0;
+            $(".header").click(function () {
+                if (control == 0) {
+                    $(".contenidoAcordeon").slideUp("fast");
+                    control++;
+                }else {
+                    $(".contenidoAcordeon").slideDown("slow");
+                    control--;
+                }
+            })
+
+            $(".acordeon").hover(function () {
+               $(".acordeon").addClass('sobre');
+            }, function () {
+                $(".acordeon").removeClass('sobre');
+            });
+
+            $(".contenidoAcordeon input").focus(function () { 
+                $(".contenidoAcordeon").addClass('activo');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="acordeon">
+        <div class="header">Este es un header</div>
+        <div class="contenidoAcordeon">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id eius reiciendis voluptatem dolore illo assumenda ab tempore dolores, quia velit iste praesentium nesciunt animi. Ab nemo vero, velit repudiandae blanditiis modi iure quis nostrum reprehenderit ea laudantium incidunt eos exercitationem voluptatum! Illo, soluta veniam est quis laborum, ullam ratione commodi pariatur fugiat nemo labore voluptatem, voluptates in dolores autem odit!</p>
+            <input type="text" name="" id="">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de selectores y addClass</title>
+    <script src="js/jquery-3.6.3.js"></script>
+    <style>
+        #container{
+            width: 500px;
+            margin: auto;
+            background-color: #fff;
+            padding: 40px 20px 20px 20px;
+        }
+
+        #container a{
+            color: #fff;
+            text-decoration: none;
+            background-color: #f60;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        #container a:hover{
+            background-color: #f66;
+        }
+
+        body{
+            background-color: #e2e2e2;
+        }
+
+        .colorTitulo{
+            color: #fff;
+            background-color: #0066cc;
+            padding: 10px;
+        }
+
+        .selector1{
+            color: #f90;
+        }
+
+        .selector2{
+            color: #006;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#boton1").click(function () {
+                $("h1, h2, h3").addClass('colorTitulo');
+            });
+
+            $("#boton2").click(function () {
+                $("p").addClass('selector1');
+            });
+
+            $("#boton3").click(function () {
+                $("p[id]").addClass('colorTitulo');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+
+        <a href="#" id="boton1">Cambiar color de titutlos</a><br><br><br>
+        <a href="#" id="boton2">Cambiar color parrafos</a><br><br><br>
+        <a href="#" id="boton3">Cambiar color parrafos 2</a><br><br><br>
+
+        <h1>Titulo 1</h1>
+        <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ullam, doloremque tenetur eum repellat quis praesentium unde itaque! Dicta enim soluta ex et, corporis similique eligendi quis consequuntur corrupti! Consequuntur impedit earum eius. Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, beatae!</p>
+
+        <h2>Titulo 2</h2>
+        <p class="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem hic consectetur quidem expedita praesentium aut atque! Laborum explicabo, quod atque qui placeat voluptatem voluptas nisi error culpa suscipit quasi nostrum expedita eligendi accusamus officia recusandae aliquam quam aperiam tempore. Deleniti!</p>
+
+        <h3>Titulo 3</h3>
+        <p id="p3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio consectetur sit quae? Obcaecati sequi ipsa neque eligendi autem quo porro sint sit beatae error laborum maiores incidunt, perferendis quisquam nisi itaque dolores ea natus repellendus, pariatur provident aliquid explicabo deleniti! Quaerat blanditiis placeat maiores.</p>
+    </div>
+</body>
+</html>

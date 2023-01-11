@@ -1,0 +1,153 @@
+body{
+    background-color: #24607f;
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 850px;
+    margin: 105px auto;
+}
+
+/*  menu*/
+#menu{
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 850px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#menu ul{
+    margin: 0;
+    padding: 0;
+}
+
+#menu ul li{
+    display: inline-block;
+    padding: 40px 10px;
+    margin-left: -25px;
+}
+
+#menu ul li a{
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 40px 10px;
+}
+
+#menu ul li a:hover{
+    background-color: #ff5105;
+    color: #fff;
+}
+
+.logo, .logo:hover{
+    background: #ff5105 url(../img/logo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-left: 71px !important;
+    padding-right: 71px !important;
+}
+
+/*NUEVO*/
+.logo2{
+    background: #fff url(../img/logo_2.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-left: 71px !important;
+    padding-right: 71px !important;
+}
+
+.seleccionado{
+    background-color: #ff5105;
+    color: #fff !important;
+}
+
+/* fin de menu*/
+
+/* slider*/
+#slider{
+    background-image: url(../img/star-wars-4324301_640.jpg);
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 110px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+/* fin slider*/
+
+h2{
+    color: #a3e0ff;
+    font-size: 28px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.5);
+}
+
+.contenido{
+    background-color: #fff;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contenido p{
+    font-size: 14px;
+    padding: 40px;
+}
+
+#formulario{
+    background-color: #d2d2d2;
+    margin-top: -20px;
+    padding: 40px;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+#formulario form{
+    font-size: 14px;
+    margin: 0 auto;
+    width: 400px;
+}
+
+textarea{
+    height: 100px;
+    width: 400px;
+}
+
+.campo, textarea{
+    background-color: #eee;
+    border: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 400px;
+    border-radius: 3px;
+}
+
+.campo:focus, textarea:focus{
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 10px #24607f;
+}
+
+.boton{
+    background-color: #ff8a00;
+    border: 0;
+    padding: 10px;
+    margin-left: 150px;
+    width: 150px;
+    color: white;
+    border-radius: 3px;
+}
+.boton:hover{
+    background-color: #ff5105;
+}
+
+#footer{
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 30px ;
+}

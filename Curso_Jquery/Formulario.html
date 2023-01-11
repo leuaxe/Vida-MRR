@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validacion de Formularios con jQuery</title>
+    <script src="js/jquery-3.6.3.js"></script>
+    <style>
+        body{
+            background-color: #eee;
+            padding-top: 100px;
+        }
+
+        #container{
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            margin: 0 auto;
+            padding: 30px;
+            width: 350px;
+        }
+
+        .campo{
+            border: 4px solid #cece76;
+            font-size: 18px;
+            padding: 10px;
+            margin-bottom: 35px;
+            width: 300px;
+        }
+
+        .boton{
+            background-color: #849175;
+            border: solid 0;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .errores{
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: red;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            display: none;
+            font-size: 14px;
+            margin-top: -80px;
+            margin-left: 340px;
+            padding: 10px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+
+        $(document).ready(function () {
+           $("#enviar").click(function () {
+                var nombre = $("#nombre").val(); //val() devuelve el valor del atributo value de input
+                var correo = $("#mail").val();
+                var asunto = $("#asunto").val();
+
+                if (nombre == "") {
+                    $("#mensaje1").fadeIn();
+                    return false;
+                } else{
+                    $("#mensaje1").fadeOut();
+                    if (correo == "" || !expr.test(correo)) {
+                        $("#mensaje2").fadeIn();
+                        return false;
+                    }else {
+                        $("#mensaje2").fadeOut();
+                        if (asunto == "") {
+                            $("#mensaje3").fadeIn();
+                            return false;
+                        }
+                    }
+                }
+
+                var radio = $("input[type = 'radio']:checked");
+                var checkbox = $("input[type = 'checkbox']:checked");
+                var select = $("#lugar option:selected");
+
+                if (radio.length == 0) {
+                    $("#mensaje4").fadeIn();
+                    return false; //para que no se envie el formulario
+                } else {
+                    $("#mensaje4").fadeOut();
+                    if (checkbox.length == 0) {
+                        $("#mensaje5").fadeIn();
+                        return false;
+                    } else {
+                        $("#mensaje5").fadeOut();
+                        if (select.val() == "") {
+                            $("#mensaje6").fadeIn();
+                            return false;
+                        }
+                    }
+                }
+           }); 
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <form action="" id="miFormulario">
+            <label for="">*Nombre:</label><br>
+            <input type="text" name="nombre" id="nombre" class="campo"><br>
+            <div id="mensaje1" class="errores">Dame tu nombre</div>
+
+            <label for="">*Correo electronico:</label><br>
+            <input type="text" name="mail" id="mail" class="campo"><br>
+            <div id="mensaje2" class="errores">Dame un mail correcto</div>
+
+            <label for="">*Asunto:</label><br>
+            <input type="text" name="asunto" id="asunto" class="campo"><br>
+            <div id="mensaje3" class="errores">Dime el motivo</div>
+
+            <label for="">¿Que te parecio el curso?</label><br>
+            <input type="radio" name="gusto" value="regular">Regular <br>
+            <input type="radio" name="gusto" value="bueno">Bueno <br>
+            <input type="radio" name="gusto" value="excelente">Excelente <br>
+            <div id="mensaje4" class="errores">Escoge una opcion</div>
+
+            <label for="">¿Que temas te gustaron mas?</label><br>
+            <input type="checkbox" name="temas" value="html5">HTML 5 <br>
+            <input type="checkbox" name="temas" value="css3"> CSS3 <br>
+            <input type="checkbox" name="temas" value="jquery"> jQuery <br>
+            <div id="mensaje5" class="errores">Escoge al menos 1 tema</div>
+
+            <label for="">¿Donde tomaste el curso?</label><br>
+            <select name="lugar" id="lugar">
+                <option value="" selected></option>
+                <option value="mexico">Mexico</option>
+                <option value="eu">Estados Unidos</option>
+                <option value="canada">Canada</option>
+            </select><br>
+            <div id="mensaje6" class="errores">Selecciona un pais</div>
+
+            <input type="submit" value="Enviar datos" id="enviar" class="boton">
+        </form>
+    </div>
+</body>
+</html>
